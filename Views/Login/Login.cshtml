@@ -1,0 +1,62 @@
+﻿@model ESD_Project.Models.User
+@using BotDetect.Web.Mvc;
+<link href="@BotDetect.Web.CaptchaUrls.Absolute.LayoutStyleSheetUrl"
+      rel="stylesheet" type="text/css" />
+@{
+    MvcCaptcha loginCaptcha = new MvcCaptcha("LoginCaptcha");
+    loginCaptcha.UserInputID = "CaptchaCode";
+}
+@{
+    ViewBag.Title = "Login";
+}
+<section class="my-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-4 col-lg-6 p-0 shadow  d-sm-none d-md-block d-none d-sm-block position-relative" style="background-image: radial-gradient(circle, red, #9c0404, #060606);
+    ">
+                <div class="text-center position-absolute top-50 w-100" ><i class="fas fa-user-lock text-white" style="font-size:5rem;"></i></div>
+            </div>
+            <div class="col-sm-12 col-md-8 col-lg-6 p-0 shadow">
+                    <div class="bg-primary p-3 ">
+                        <h4 class="text-center text-uppercase text-white">Login</h4>
+                    </div>
+                @using (Html.BeginForm("Login", "Login", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(false, "", new { @class = "text-danger alert-danger" })
+                    <div class="">
+                        <div class="form-group m-3">
+                            <div class="input-group rounded-1">
+                                    <div class="input-group-text"><i class="fa fa-user"></i></div>
+                                @Html.TextBoxFor(m => m.Username, "", new { @class = "form-control", @placeholder = "Username*" })
+                                @Html.ValidationMessageFor(m => m.Username, "", new { @class = "badge badge-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group m-3">
+                            <div class="input-group rounded-1">
+                                <div class="input-group-text"><i class="fa fa-lock"></i></div>
+                                @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = "Password" })
+                                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "badge badge-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group mx-3 mt-3 mb-4 d-flex flex-column ">
+                            <div class="">
+                                @Html.Captcha(loginCaptcha)
+                            </div>
+                            <div class="input-group">
+                                <div class="input-group-text"><i class="fa fa-key"></i></div>
+                                @Html.TextBox("CaptchaCode")
+                            </div>                           
+                        </div>
+                            <div class="form-group mx-3 mt-4 my-5 d-flex justify-content-between">
+                                <input type="submit" class="btn d-block btn-primary" style="border-radius:5rem; width:40%;">
+                                <a href="#" >Foget Password?</a>
+                            </div>
+                        </div>
+                }
+            </div>
+        </div>
+        
+    </div>
+</section>
+

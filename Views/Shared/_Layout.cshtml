@@ -1,0 +1,201 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/index.css")
+    @Styles.Render("~/Content/font-awesome/css/all.css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <div class="container-fluid" style="background-color:#1e222e;">
+        <div class="container d-flex justify-content-end p-2">
+            @{var session = (ESD_Project.Common.UserLogin)Session[ESD_Project.Common.CommonConstants.USER_SESSION]; }
+            @if (session != null)
+            {
+                <span class="text-white">@session.Username</span>
+            }
+            else
+            {
+                <a class="btn btn-success text-white fs-5 py-1 px-3" href="@Url.Action("Login", "Login")">Sign In</a>
+            }
+        </div>
+    </div>
+    <div class="container-fluid clearfix d-flex justify-content-center">
+        <div class="logo-web "><a href="#"><img src="Image\Logo School.png" class="w-100"></a></div>
+    </div>
+
+    <div class="wrapper sticky-top shadow-lg">
+        <nav>
+            <input type="checkbox" id="show-search">
+            <input type="checkbox" id="show-menu">
+            <label for="show-menu" class="menu-icon"><i class="fas fa-bars"></i></label>
+            <div class="content">
+                <div class="logo"><a href="@Url.Action("Index","Home")">News</a></div>
+                <ul class="links">
+                    <li><a href="@Url.Action("Index","Home")">Home</a></li>
+                    <li><a href="@Url.Action("About","Home")">About</a></li>
+                    <li><a href="@Url.Action("Contract","Home")">Contract</a></li>
+                    <li>
+                        <a href="#" class="desktop-link">
+                            Faculty
+                            <span class="fas fa-caret-down"> </span>
+                        </a>
+                        <input type="checkbox" id="show-features">
+                        <label for="show-features">
+                            Faculty
+                            <span class="fas fa-caret-down"> </span>
+                        </label>
+
+                        <ul>
+                            <li><a href="#">IT</a></li>
+                            <li><a href="#">Design</a></li>
+                            <li><a href="#">Business</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#" class="desktop-link">
+                            Category
+                            <span class="fas fa-caret-down"> </span>
+                        </a>
+                        <input type="checkbox" id="show-services">
+                        <label for="show-services">
+                            Category
+                            <span class="fas fa-caret-down"> </span>
+                        </label>
+                        <ul>
+                            <li><a href="#">Entertainment</a></li>
+                            <li><a href="#">Art</a></li>
+                            <li><a href="#">Sport</a></li>                         
+                        </ul>
+                    </li>
+                    <li><a href="#">Feedback</a></li>
+                </ul>
+            </div>
+            <label for="show-search" class="search-icon"><i class="fas fa-search"></i></label>
+            <form action="#" class="search-box">
+                <input type="text" placeholder="Type Something to Search..." required>
+                <button type="submit" class="go-icon"><i class="fas fa-long-arrow-alt-right"></i></button>
+            </form>
+        </nav>
+    </div>
+
+    <content>
+        @RenderBody()
+    </content>
+
+    <footer>
+        <div class="container pt-4">
+            <div class="row">
+                <div class="col-sm-12 col-lg-4">
+                    <div class="shadow rounded">
+                        <div class="footer-title text-center p-2" style="background-color: rgba(0,0,0,0.7); font-size:1.2rem;">MOST POPULAR</div>
+                        <ul class="footer-content-group">
+                            <li class="footer-content mb-2">
+                                <a href="#" class="d-flex justify-content-start">
+                                    <img class="" src="Image\Graphic Design student should have a lot of experience.jpg" alt="" width="145" height="100">
+                                    <div class="text-post-popular px-2 ">
+                                        <h6>Graphic Design student should have a lot of experience, learn a lot or can go a lot to be inspired. </h6>
+                                        <small><i class="fas fa-eye me-1"></i>View </small>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="footer-content mb-2">
+                                <a href="#" class="d-flex justify-content-start">
+                                    <img class="" src="Image\Skills to work effectively in a professional environmentSkills to work effectively in a professional environment.jpg" alt="" width="145" height="100">
+                                    <div class="text-post-popular px-2 ">
+                                        <h6>Skills to work effectively in a professional environment</h6>
+                                        <small><i class="fas fa-eye me-1"></i>View </small>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="footer-content mb-2">
+                                <a href="#" class="d-flex justify-content-start">
+                                    <img class="" src="Image\Recruitment trends in IT industry.jpg" alt="" width="145" height="100">
+                                    <div class="text-post-popular px-2 ">
+                                        <h6>Recruitment trends in IT industry - Roadmap to become Full-stack Developer & Tester</h6>
+                                        <small><i class="fas fa-eye me-1"></i>View </small>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-sm-12 col-lg-4">
+                    <div class="shadow rounded">
+                        <div class="text-center p-2" style="background-color: rgba(0,0,0,0.7); font-size:1.2rem;">MOST POPULAR</div>
+                        <ul class="footer-content-group">
+                            <li class="footer-content mb-2">
+                                <a href="#" class="d-flex justify-content-start">
+                                    <img class="" src="Image\Arts.jpg" alt="" width="145" height="100">
+                                    <div class="text-post-popular px-2 ">
+                                        <h6>Entertainment</h6>
+                                        <small>10</small>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="footer-content mb-2">
+                                <a href="#" class="d-flex justify-content-start">
+                                    <img class="" src="Image\Sports.jpg" alt="" width="145" height="100">
+                                    <div class="text-post-popular px-2 ">
+                                        <h6>Sport</h6>
+                                        <small>12</small>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="footer-content mb-2">
+                                <a href="#" class="d-flex justify-content-start">
+                                    <img class="" src="Image\Arts.jpg" alt="" width="145" height="100">
+                                    <div class="text-post-popular px-2 ">
+                                        <h6>Art</h6>
+                                        <small>8</small>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-sm-12 col-lg-4">
+                    <div class="shadow rounded">
+                        <div class="text-center p-2" style="background-color: rgba(0,0,0,0.7); font-size:1.2rem;">VIDEO OF THE DAY</div>
+                        <ul class="footer-content-group">
+                            <li class="footer-content ">
+                                <iframe width="100%" src="https://www.youtube.com/embed/K93d63k1TRk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="shadow rounded">
+                        <div class="text-center p-2" style="background-color: rgba(0,0,0,0.7);font-size:1.2rem">FOLLOW US</div>
+                        <ul class="footer-content-group">
+                            <li class="footer-content d-flex justify-content-center">
+                                <a href="#" alt=""><i class="fab fa-facebook p-2" style="color:#170cc0;font-size:2.5rem;"></i> </a>
+                                <a href="#"><i class="fab fa-instagram p-2" style="color:#150000;font-size:2.5rem;"></i> </a>
+                                <a href="#"><i class="fab fa-twitter p-2" style="color:#5182cc;font-size:2.5rem;"></i></a>
+                                <a href="#"><i class="fab fa-youtube p-2" style="color:#fa0909;font-size:2.5rem;"></i></a>
+                                <a href="#"><i class="fab fa-pinterest p-2" style="color:#a90000;font-size:2.5rem;"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid" style="background-color:rgba(0,0,0,.35)">
+            <div class="container p-3 text-center" style="color:white;">
+                Copyright &copy; @DateTime.Now.Year
+            </div>
+        </div>
+    </footer>
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

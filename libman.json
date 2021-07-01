@@ -1,0 +1,26 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "library": "jquery@3.5.1",
+      "destination": "Scripts/jquery/"
+    },
+    {
+      "library": "jquery-validate@1.19.2",
+      "destination": "Scripts/jquery/jquery-validate/",
+      "files": [
+        "jquery.validate.min.js",
+        "jquery.validate.js"
+      ]
+    },
+    {
+      "library": "modernizr@2.8.3",
+      "destination": "Scripts/js/modernizr/"
+    },
+    {
+      "library": "font-awesome@5.15.2",
+      "destination": "Content/font-awesome/font-awesome/"
+    }
+  ]
+}
